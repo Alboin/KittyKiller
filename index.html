@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Uti skogen, liten blomma </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!--Bibliotek-->
+	<script src="js/external/pixi.js"></script>
+
+	<!--Egna funktioner-->
+	<script src="js/include/initialize.js"></script>
+	<script src="js/include/animations.js"></script>
+	<script src="js/include/loadCharacter.js"></script>
+
+
+</head>
+
+<body>
+	<div id="canvas"></div>
+
+	<script>
+
+	document.body.appendChild(renderer.view);
+	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	window.addEventListener( 'resize', onWindowResize, false );
+
+	restartTimer();
+
+	function onDocumentMouseDown( event ) {
+		mouseX = (event.clientX );
+		mouseY = (event.clientY );
+		var V = [mouseX,mouseY];
+	}
+
+	function restartTimer(){
+		start = Date.now();
+		time_count = 0;
+	}
+
+	function onWindowResize( e ) {
+		width = window.innerWidth, height = window.innerHeight;
+		renderer.resize( width, height );
+	}
+
+	animate();
+	function animate() {
+		time = Date.now();
+		time_count = (time - start)/1000; // seconds from latest 'restartTimer'
+
+		animate_character(time_count, 1);
+
+		requestAnimationFrame(animate);
+		renderer.render(stage);
+	}
+	</script>
+</body>
+</html>
