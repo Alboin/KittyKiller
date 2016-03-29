@@ -1,19 +1,71 @@
 var texture = PIXI.Texture.fromImage('images/purple_sprite.png');
 
+var textures_idle = [];
 var textures_run = [];
-for(var texture_id = 1; texture_id < 5; texture_id++){
-  textures_run[texture_id] = PIXI.Texture.fromImage('images/s' + texture_id + '.png');
+var textures_start_walking = [];
+var textures_walking = [];
+
+for(var texture_id = 1; texture_id < 46; texture_id++){
+  if(texture_id > 9){
+    textures_idle[texture_id] = PIXI.Texture.fromImage('images/animations/idle/idle_000' + texture_id + '.png');
+  }else if(texture_id > 0){
+    textures_idle[texture_id] = PIXI.Texture.fromImage('images/animations/idle/idle_0000' + texture_id + '.png');
+  }else{
+    textures_idle[texture_id] = PIXI.Texture.fromImage('images/animations/idle/idle_00000.png');
+  }
 }
 
-sprite = new PIXI.Sprite(texture);
-sprite.texture = textures_run[2];
-sprite.scale.x = 0.83;
-sprite.scale.y = 0.83;
+for(var texture_id = 1; texture_id < 15; texture_id++){
+  if(texture_id > 9){
+    textures_start_walking[texture_id] = PIXI.Texture.fromImage('images/animations/start_walking/start_walking_000' + texture_id + '.png');
+  }else if(texture_id > 0){
+    textures_start_walking[texture_id] = PIXI.Texture.fromImage('images/animations/start_walking/start_walking_0000' + texture_id + '.png');
+  }else{
+    textures_start_walking[texture_id] = PIXI.Texture.fromImage('images/animations/start_walking/start_walking_00000.png');
+  }
+}
 
-sprite.anchor.x = 0.5;
-sprite.anchor.y = 0.5;
+for(var texture_id = 1; texture_id < 31; texture_id++){
+  if(texture_id > 9){
+    textures_walking[texture_id] = PIXI.Texture.fromImage('images/animations/walking/walking_000' + texture_id + '.png');
+  }else if(texture_id > 0){
+    textures_walking[texture_id] = PIXI.Texture.fromImage('images/animations/walking/walking_0000' + texture_id + '.png');
+  }else{
+    textures_walking[texture_id] = PIXI.Texture.fromImage('images/animations/walking/walking_00000.png');
+  }
+}
 
-sprite.position.x = 200;
-sprite.position.y = 200;
+//var sceneGraph = new PIXI.DisplayObject();
 
-stage.addChild(sprite);
+main_character = new PIXI.Sprite(texture);
+main_character.texture = textures_idle[2];
+main_character.scale.x = height/1300;
+main_character.scale.y = height/1300;
+
+main_character.anchor.x = 0.5;
+main_character.anchor.y = 1;
+
+main_character.position.x = 300;
+main_character.position.y = parameters.ground_boundary;
+
+main_character.mass = 1;
+main_character.velocity = new PIXI.Vector(0,0);
+main_character.force = new PIXI.Vector(0,0);
+main_character.attack_power = "BEAST";
+main_character.max_speed = 200;
+main_character.speed = 400;
+
+
+main_scene.addChild(main_character);
+
+
+
+var front_texture = PIXI.Texture.fromImage('images/scene1/front.png');
+var front_sprite = new PIXI.Sprite(front_texture);
+front_sprite.scale.x = scene_scale;
+front_sprite.scale.y = scene_scale;
+front_sprite.anchor.x = 0.0;
+front_sprite.anchor.y = 0.0;
+front_sprite.position.x = 0;
+front_sprite.position.y = height*(1-percent_screen)/2;
+front_scene.addChild(front_sprite);
