@@ -46,15 +46,21 @@
 		time = Date.now();
 		time_count = (time - start)/1000; // seconds from latest 'restartTimer'
 
-		move_character();
+		if(!in_curbstomp){
+			move_character();
+		}
 
-		if(main_character.position.y < parameters.ground_boundary || in_jump){
+		if(in_curbstomp){
+			animate_character(time_count, CHARACTER_MOTION.CURBSTOMP);
+		}else	if(main_character.position.y < parameters.ground_boundary || in_jump){
 			animate_character(time_count, CHARACTER_MOTION.JUMP);
 		}else if(left || right){
 			animate_character(time_count, CHARACTER_MOTION.WALKING);
 		}else{
 			animate_character(time_count, CHARACTER_MOTION.IDLE);
 		}
+
+
 
 
 		animate_scene();

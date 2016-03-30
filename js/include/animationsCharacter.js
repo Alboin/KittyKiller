@@ -13,6 +13,9 @@ function animate_character(time_count, motion){
   case CHARACTER_MOTION.JUMP:
       animate_character_jump();
       break;
+  case CHARACTER_MOTION.CURBSTOMP:
+      animate_character_curbstomp();
+      break;
   default:
        //hej
   }
@@ -56,6 +59,16 @@ function animate_character_jump(){
   if(time_count > full_time){ in_jump = false; }
   for(var a = n_frames; a > 0; a--){
     if(time_count < time_step*a){ main_character.texture = textures_jump[a]; }
+  }
+}
+
+function animate_character_curbstomp(){
+  time_step = 0.03;
+  n_frames = textures_curbstomp.length-1;
+  full_time = time_step * n_frames;
+  if(time_count > full_time){ in_curbstomp = false; }
+  for(var a = n_frames; a > 0; a--){
+    if(time_count < time_step*a){ main_character.texture = textures_curbstomp[a]; }
   }
 }
 

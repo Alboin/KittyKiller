@@ -36,12 +36,14 @@ var time_step = 0;
 var left, right, up, down = false; // Arrow Key controls
 var turn_around_check = 0;
 var in_jump = false;
+var in_curbstomp = false;
 
 var CHARACTER_MOTION = {
   'IDLE' : 0,
   'START_WALKING' : 1,
   'WALKING' : 2,
   'JUMP' : 3,
+  'CURBSTOMP' : 4,
 }
 
 var parameters = {

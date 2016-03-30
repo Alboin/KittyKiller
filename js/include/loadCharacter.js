@@ -5,6 +5,7 @@ var textures_run = [];
 var textures_start_walking = [];
 var textures_walking = [];
 var textures_jump = [];
+var textures_curbstomp = [];
 
 for(var texture_id = 1; texture_id < 46; texture_id++){
   if(texture_id > 9){
@@ -46,6 +47,16 @@ for(var texture_id = 1; texture_id < 31; texture_id++){
   }
 }
 
+for(var texture_id = 1; texture_id < 28; texture_id++){
+  if(texture_id > 9){
+    textures_curbstomp[texture_id] = PIXI.Texture.fromImage('images/animations/curbstomp/curbstomp_000' + texture_id +'.png');
+  }else if(texture_id > 0){
+    textures_curbstomp[texture_id] = PIXI.Texture.fromImage('images/animations/curbstomp/curbstomp_0000' + texture_id +'.png');
+  }else{
+    textures_curbstomp[texture_id] = PIXI.Texture.fromImage('images/animations/curbstomp/curbstomp_00000.png');
+  }
+}
+
 //var sceneGraph = new PIXI.DisplayObject();
 
 main_character = new PIXI.Sprite(texture);
@@ -65,7 +76,7 @@ main_character.velocity = new PIXI.Vector(0,0);
 main_character.force = new PIXI.Vector(0,0);
 main_character.attack_power = "BEAST";
 main_character.max_speed = 200;
-main_character.speed = 80;
+main_character.speed = 60;
 
 
 main_scene.addChild(main_character);
