@@ -13,7 +13,7 @@ function onKeyDown(e) {
     else if (e.keyCode == '37') {left = true; if(turn_around_check){ animate_character_turn_around(); turn_around_check = 0;}}
 		else if (e.keyCode == '39') {right = true; if(!turn_around_check){ animate_character_turn_around(); turn_around_check = 1;}}
 
-    else if (e.keyCode == '32') { if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
+    else if (e.keyCode == '32') { restartShakeTimer(); if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
     else if (e.keyCode == '67') { if(!in_curbstomp){ restartTimer();}  in_curbstomp = true;}
 }
 

@@ -34,6 +34,7 @@
 
 	document.body.appendChild(renderer.view);
 	restartTimer();
+	restartShakeTimer();
 
 
 	function restartTimer(){
@@ -41,11 +42,17 @@
 		time_count = 0;
 	}
 
+	function restartShakeTimer(){
+		start_shaker = Date.now();
+		time_count_shaker = 0;
+	}
+
 
 	animate();
 	function animate() {
 		time = Date.now();
 		time_count = (time - start)/1000; // seconds from latest 'restartTimer'
+		time_count_shaker = (time - start_shaker)/1000; // seconds from latest 'restartTimer'
 
 		if(!in_curbstomp){
 			move_character();
@@ -63,7 +70,7 @@
 
 
 
-
+		animate_shake_scene(time_count_shaker);
 		animate_scene();
 		animate_leaves(all_leaves, time);
 		animate_fireflies(all_fireflies, time);

@@ -46,12 +46,16 @@ var mouseX, mouseY = 0;
 var main_character;
 var time = Date.now();
 var start = Date.now();
+var start_shaker = Date.now();
 var time_count = 0;
+var time_count_shaker = 0;
 var time_step = 0;
 var left, right, up, down = false; // Arrow Key controls
 var turn_around_check = 0;
 var in_jump = false;
 var in_curbstomp = false;
+var shake_factor = 10;
+var shake_time = 1;
 
 var CHARACTER_MOTION = {
   'IDLE' : 0,
