@@ -54,8 +54,11 @@
 			animate_character(time_count, CHARACTER_MOTION.CURBSTOMP);
 		}else	if(main_character.position.y < parameters.ground_boundary || in_jump){
 			animate_character(time_count, CHARACTER_MOTION.JUMP);
+		}else if((left || right) && in_start_walk){
+			animate_character(time_count, CHARACTER_MOTION.START_WALKING);
 		}else if(left || right){
 			animate_character(time_count, CHARACTER_MOTION.WALKING);
+			in_walk = true;
 		}else{
 			animate_character(time_count, CHARACTER_MOTION.IDLE);
 		}

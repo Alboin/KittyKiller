@@ -34,8 +34,11 @@ var start = Date.now();
 var time_count = 0;
 var time_step = 0;
 var left, right, up, down = false; // Arrow Key controls
+var first_press = true;
 var turn_around_check = 0;
 var in_jump = false;
+var in_start_walk = true;
+var in_walk = false;
 var in_curbstomp = false;
 
 var CHARACTER_MOTION = {

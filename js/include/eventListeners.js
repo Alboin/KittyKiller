@@ -10,8 +10,28 @@ function onKeyDown(e) {
     e = e || window.event;
 		if (e.keyCode == '38') {up = true;}
     else if (e.keyCode == '40') {down = true;}
-    else if (e.keyCode == '37') {left = true; if(turn_around_check){ animate_character_turn_around(); turn_around_check = 0;}}
-		else if (e.keyCode == '39') {right = true; if(!turn_around_check){ animate_character_turn_around(); turn_around_check = 1;}}
+    else if (e.keyCode == '37') {
+      left = true;
+      if(turn_around_check){
+        animate_character_turn_around();
+        turn_around_check = 0;
+      }
+      if(first_press) {
+        restartTimer();
+      }
+      first_press = false;
+    }
+		else if (e.keyCode == '39') {
+      right = true;
+      if(!turn_around_check){
+        animate_character_turn_around();
+        turn_around_check = 1;
+      }
+      if(first_press) {
+        restartTimer();
+      }
+      first_press = false;
+    }
 
     else if (e.keyCode == '32') { if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
     else if (e.keyCode == '67') { if(!in_curbstomp){ restartTimer();}  in_curbstomp = true;}
@@ -21,8 +41,8 @@ function onKeyUp(e) {
     e = e || window.event;
 		if (e.keyCode == '38') {up = false;}
     else if (e.keyCode == '40') {down = false;}
-    else if (e.keyCode == '37') {left = false;}
-    else if (e.keyCode == '39') {right = false;}
+    else if (e.keyCode == '37') {left = false; in_walk = false; in_start_walk = true; first_press = true;}
+    else if (e.keyCode == '39') {right = false; in_walk = false; in_start_walk = true; first_press = true;}
 }
 
 
