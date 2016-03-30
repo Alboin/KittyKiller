@@ -13,7 +13,7 @@ function onKeyDown(e) {
     else if (e.keyCode == '37') {left = true; if(turn_around_check){ animate_character_turn_around(); turn_around_check = 0;}}
 		else if (e.keyCode == '39') {right = true; if(!turn_around_check){ animate_character_turn_around(); turn_around_check = 1;}}
 
-    else if (e.keyCode == '32') {jump_character();}
+    else if (e.keyCode == '32') { if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
 }
 
 function onKeyUp(e) {
@@ -36,6 +36,7 @@ function onWindowResize( e ) {
   width = window.innerWidth, height = window.innerHeight;
 
   parameters.ground_boundary = 3*height/4;
+  main_character.scale_factor = width/1100;
   main_character.position.y = parameters.ground_boundary;
   scene_scale = percent_screen*height/1000;
 
@@ -59,8 +60,9 @@ function onWindowResize( e ) {
   front_sprite.scale.y = scene_scale;
   front_sprite.position.y = height*(1-percent_screen)/2;
 
-  main_character.scale.x = height/1000;
-  main_character.scale.y = height/1000;
+
+  main_character.scale.x = main_character.scale_factor;
+  main_character.scale.y = main_character.scale_factor;
 
   renderer.resize( width, height );
 }

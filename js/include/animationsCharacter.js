@@ -10,6 +10,9 @@ function animate_character(time_count, motion){
   case CHARACTER_MOTION.WALKING:
       animate_character_walking();
       break;
+  case CHARACTER_MOTION.JUMP:
+      animate_character_jump();
+      break;
   default:
        //hej
   }
@@ -37,12 +40,22 @@ function animate_character_start_walking(){
 }
 
 function animate_character_walking(){
-  time_step = 0.004;
+  time_step = 0.03;
   n_frames = textures_walking.length-1;
   full_time = time_step * n_frames;
   if(time_count > full_time){ restartTimer(); }
   for(var a = n_frames; a > 0; a--){
     if(time_count < time_step*a){ main_character.texture = textures_walking[a]; }
+  }
+}
+
+function animate_character_jump(){
+  time_step = 0.03;
+  n_frames = textures_jump.length-1;
+  full_time = time_step * n_frames;
+  if(time_count > full_time){ in_jump = false; }
+  for(var a = n_frames; a > 0; a--){
+    if(time_count < time_step*a){ main_character.texture = textures_jump[a]; }
   }
 }
 

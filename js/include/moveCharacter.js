@@ -42,8 +42,16 @@ function checkBoundaries(){
     main_character.position.y = parameters.ground_boundary;
       main_character.velocity.y = 0;
   }
+  if(main_character.position.x < parameters.left_boundary){
+    main_character.position.x = parameters.left_boundary;
+      main_character.velocity.x = 0;
+  }
+  if(main_character.position.x > parameters.right_boundary-width/2){
+    main_character.position.x = parameters.right_boundary-width/2;
+      main_character.velocity.x = 0;
+  }
 }
 
 function jump_character(){
-  main_character.velocity.y = -50;
+  main_character.velocity.y = -70;
 }
