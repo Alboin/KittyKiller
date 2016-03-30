@@ -73,6 +73,10 @@ function onWindowResize( e ) {
   back1_sprite.scale.y = scene_scale;
   back1_sprite.position.y = height*(1-percent_screen)/2;
 
+  back05_sprite.scale.x = scene_scale;
+  back05_sprite.scale.y = scene_scale;
+  back05_sprite.position.y = height*(1-percent_screen)/2;
+
   main_sprite.scale.x = scene_scale;
   main_sprite.scale.y = scene_scale;
   main_sprite.position.y = height*(1-percent_screen)/2;

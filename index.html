@@ -15,6 +15,7 @@
 
 	<script src="js/include/animationsCharacter.js"></script>
 	<script src="js/include/animationsLeaves.js"></script>
+	<script src="js/include/animationsFireflies.js"></script>
 	<script src="js/include/animationsScene.js"></script>
 	<script src="js/include/moveCharacter.js"></script>
 
@@ -22,6 +23,7 @@
 	<script src="js/include/loadScene.js"></script>
 	<script src="js/include/loadCharacter.js"></script>
 	<script src="js/include/loadLeaves.js"></script>
+	<script src="js/include/loadFireflies.js"></script>
 
 </head>
 
@@ -38,7 +40,6 @@
 		start = Date.now();
 		time_count = 0;
 	}
-
 
 
 	animate();
@@ -68,6 +69,7 @@
 
 		animate_scene();
 		animate_leaves(all_leaves, time);
+		animate_fireflies(all_fireflies, time);
 		requestAnimationFrame(animate);
 		renderer.render(stage);
 	}

@@ -7,24 +7,39 @@ var stage = new PIXI.Container();
 var fixed_scene = new PIXI.Container();
 var back2_scene = new PIXI.Container();
 var back1_scene = new PIXI.Container();
+var back05_scene = new PIXI.Container();
 var main_scene = new PIXI.Container();
 var front_scene = new PIXI.Container();
+var hud_scene = new PIXI.Container();
 
 stage.addChild(fixed_scene);
 stage.addChild(back2_scene);
 stage.addChild(back1_scene);
+stage.addChild(back05_scene);
 stage.addChild(main_scene);
 stage.addChild(front_scene);
+stage.addChild(hud_scene);
 
 
-var graphics = new PIXI.Graphics();
-graphics.beginFill(0x111211);
+var graphics_front = new PIXI.Graphics();
+graphics_front.beginFill(0x111211);
 // set the line style to have a width of 5 and set the color to red
 // draw a rectangle
-graphics.drawRect(0, 0, width, (height*0.10));
+graphics_front.drawRect(0, 0, width, (height*0.10));
 //graphics.drawRect(0, height*(1-0.1), width, (height*0.10));
 
-stage.addChild(graphics);
+stage.addChild(graphics_front);
+
+
+var graphics_back = new PIXI.Graphics();
+graphics_back.beginFill(0x111211);
+// set the line style to have a width of 5 and set the color to red
+// draw a rectangle
+//graphics_back.drawRect(0, 0, width, (height*0.10));
+graphics_back.drawRect(0, height*(1-0.1), width, (height*0.10));
+
+hud_scene.addChild(graphics_back);
+
 
 
 var mouseX, mouseY = 0;

@@ -32,6 +32,8 @@ function update_character_position(){
   main_character.position.x += main_character.velocity.x * parameters.dt;
   main_character.position.y += main_character.velocity.y * parameters.dt;
 
+  
+
   checkBoundaries();
 
 }
