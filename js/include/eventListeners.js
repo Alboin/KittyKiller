@@ -16,7 +16,7 @@ function onKeyDown(e) {
         animate_character_turn_around();
         turn_around_check = 0;
       }
-      if(first_press) {
+      if(first_press && !in_jump && !in_curbstomp) {
         restartTimer();
       }
       first_press = false;
@@ -27,14 +27,14 @@ function onKeyDown(e) {
         animate_character_turn_around();
         turn_around_check = 1;
       }
-      if(first_press) {
+      if(first_press && !in_jump && !in_curbstomp) {
         restartTimer();
       }
       first_press = false;
     }
 
-    else if (e.keyCode == '32') { if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
-    else if (e.keyCode == '67') { if(!in_curbstomp){ restartTimer();}  in_curbstomp = true;}
+    else if (e.keyCode == '32') { if(!in_jump && !in_curbstomp){jump_character(); restartTimer(); in_jump = true;}}
+    else if (e.keyCode == '67') { if(!in_jump && !in_curbstomp){ restartTimer(); in_curbstomp = true;}}
 }
 
 function onKeyUp(e) {
