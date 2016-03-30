@@ -12,7 +12,7 @@ function onKeyDown(e) {
     else if (e.keyCode == '40') {down = true;}
     else if (e.keyCode == '37') {
       left = true;
-      if(turn_around_check){
+      if(turn_around_check  && !in_curbstomp){
         animate_character_turn_around();
         turn_around_check = 0;
       }
@@ -23,7 +23,7 @@ function onKeyDown(e) {
     }
 		else if (e.keyCode == '39') {
       right = true;
-      if(!turn_around_check){
+      if(!turn_around_check && !in_curbstomp){
         animate_character_turn_around();
         turn_around_check = 1;
       }
