@@ -19,8 +19,8 @@ stage.addChild(back1_scene);
 stage.addChild(back05_scene);
 stage.addChild(main_scene);
 stage.addChild(front_scene);
-main_scene.addChild(light_scene);
 stage.addChild(hud_scene);
+main_scene.addChild(light_scene);
 
 
 var graphics_front = new PIXI.Graphics();
