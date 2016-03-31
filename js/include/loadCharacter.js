@@ -77,11 +77,9 @@ main_character.force = new PIXI.Vector(0,0);
 main_character.attack_power = "BEAST";
 main_character.max_speed = 200;
 main_character.speed = 60;
-
+main_character.tint = 9999999999999;
 
 main_scene.addChild(main_character);
-
-
 
 var front_texture = PIXI.Texture.fromImage('images/scene1/front.png');
 var front_sprite = new PIXI.Sprite(front_texture);

@@ -10,6 +10,7 @@ var back1_scene = new PIXI.Container();
 var back05_scene = new PIXI.Container();
 var main_scene = new PIXI.Container();
 var front_scene = new PIXI.Container();
+var light_scene = new PIXI.Container();
 var hud_scene = new PIXI.Container();
 
 stage.addChild(fixed_scene);
@@ -18,6 +19,7 @@ stage.addChild(back1_scene);
 stage.addChild(back05_scene);
 stage.addChild(main_scene);
 stage.addChild(front_scene);
+main_scene.addChild(light_scene);
 stage.addChild(hud_scene);
 
 
@@ -67,8 +69,8 @@ var CHARACTER_MOTION = {
 var parameters = {
   'dt' : 0.2,
   'g' : 13.82,
-  'ground_boundary' : 3*height/4,
-  'left_boundary' : 0,
-  'right_boundary' : 2780,
+  'ground_boundary' : height*7/8,
+  'left_boundary' : 300,
+  'right_boundary' : 6700,
 
 }

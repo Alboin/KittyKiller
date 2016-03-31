@@ -41,3 +41,6 @@ main_sprite.anchor.y = 0.0;
 main_sprite.position.x = 0;
 main_sprite.position.y = height*(1-percent_screen)/2;
 main_scene.addChild(main_sprite);
+
+var character_light = new PIXI.Sprite(PIXI.Texture.fromImage('images/animations/light.png'));
+light_scene.addChild(character_light);
