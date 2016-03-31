@@ -20,3 +20,17 @@ function animate_scene(){
   back1_scene.scale.x = size_displacement_back1;
   back1_scene.scale.y = size_displacement_back1;
 }
+
+function animate_shake_scene(){
+if(time_count_shaker < shake_time){
+  var decendant = shake_factor * (Math.cos(time_count_shaker * Math.PI / shake_time)*0.5 + 0.5)
+  shake_scene.position.y = (Math.sin(time/30)) * decendant;
+
+}else{
+  in_shake = false;
+  shake_scene.position.y = 0;
+
+
+}
+
+}

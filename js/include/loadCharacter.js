@@ -76,7 +76,7 @@ main_character.velocity = new PIXI.Vector(0,0);
 main_character.force = new PIXI.Vector(0,0);
 main_character.attack_power = "BEAST";
 main_character.max_speed = 200;
-main_character.speed = 60;
+main_character.speed = 100;
 main_character.tint = 9999999999999;
 
 main_scene.addChild(main_character);
