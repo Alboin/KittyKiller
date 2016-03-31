@@ -87,6 +87,9 @@
 		animate_fireflies(all_fireflies, time);
 		requestAnimationFrame(animate);
 		renderer.render(stage);
+
+		character_light.position.x = main_character.position.x -2000;
+		character_light.position.y = main_character.position.y -1000;
 	}
 	</script>
 </body>

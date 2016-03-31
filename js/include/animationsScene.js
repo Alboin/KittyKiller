@@ -11,8 +11,8 @@ function animate_scene(){
   }
 
   var size_displacement_fixed = 1.01+(Math.sin(time/1000))*0.001;
-  var size_displacement_back2 = 1.01+(Math.sin(time/1000+1))*0.01;
-  var size_displacement_back1 = 1.01+(Math.sin(time/1000+1))*0.003;
+  var size_displacement_back2 = 1.01+(Math.sin(time/1000+1))*0.001;
+  var size_displacement_back1 = 1.01+(Math.sin(time/1000+1))*0.0005;
   fixed_scene.scale.x = size_displacement_fixed;
   fixed_scene.scale.y = size_displacement_fixed;
   back2_scene.scale.x = size_displacement_back2;
