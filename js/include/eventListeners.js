@@ -12,29 +12,29 @@ function onKeyDown(e) {
     else if (e.keyCode == '40') {down = true;}
     else if (e.keyCode == '37') {
       left = true;
-      if(turn_around_check){
+      if(turn_around_check  && !in_curbstomp){
         animate_character_turn_around();
         turn_around_check = 0;
       }
-      if(first_press) {
+      if(first_press && !in_jump && !in_curbstomp) {
         restartTimer();
       }
       first_press = false;
     }
 		else if (e.keyCode == '39') {
       right = true;
-      if(!turn_around_check){
+      if(!turn_around_check && !in_curbstomp){
         animate_character_turn_around();
         turn_around_check = 1;
       }
-      if(first_press) {
+      if(first_press && !in_jump && !in_curbstomp) {
         restartTimer();
       }
       first_press = false;
     }
 
-    else if (e.keyCode == '32') { restartShakeTimer(); if(!in_jump){jump_character(); restartTimer();}  in_jump = true;}
-    else if (e.keyCode == '67') { if(!in_curbstomp){ restartTimer();}  in_curbstomp = true;}
+    else if (e.keyCode == '32') { if(!in_jump && !in_curbstomp){jump_character(); restartTimer(); in_jump = true;}}
+    else if (e.keyCode == '67') { if(!in_jump && !in_curbstomp){ restartTimer(); in_curbstomp = true;}}
 }
 
 function onKeyUp(e) {

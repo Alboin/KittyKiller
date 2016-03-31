@@ -22,15 +22,15 @@ function animate_scene(){
 }
 
 function animate_shake_scene(){
-
 if(time_count_shaker < shake_time){
-  var decendant = 5*((Math.cos( time_count_shaker * shake_time / Math.PI ))*0.5 + 0.5);
-  fixed_scene.position.y += (Math.sin(time/30)) * decendant;
-  back2_scene.position.y += (Math.sin(time/30)) * decendant;
-  back1_scene.position.y += (Math.sin(time/30)) * decendant;
-  back05_scene.position.y += (Math.sin(time/30)) * decendant;
-  main_scene.position.y += (Math.sin(time/30)) * decendant;
-  front_scene.position.y += (Math.sin(time/30)) * decendant;
+  var decendant = shake_factor * (Math.cos(time_count_shaker * Math.PI / shake_time)*0.5 + 0.5)
+  shake_scene.position.y = (Math.sin(time/30)) * decendant;
+
+}else{
+  in_shake = false;
+  shake_scene.position.y = 0;
+
+
 }
 
 }

@@ -70,6 +70,10 @@ function animate_character_curbstomp(){
   for(var a = n_frames; a > 0; a--){
     if(time_count < time_step*a){ main_character.texture = textures_curbstomp[a]; }
   }
+  if(time_count > stomp_time && !in_shake){
+    restartShakeTimer();
+    in_shake = true;
+  }
 }
 
 function animate_character_turn_around(){

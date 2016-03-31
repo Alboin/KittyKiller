@@ -4,6 +4,7 @@ var renderer = PIXI.autoDetectRenderer(width, height, canvas, true, true);
 
 
 var stage = new PIXI.Container();
+var shake_scene = new PIXI.Container();
 var fixed_scene = new PIXI.Container();
 var back2_scene = new PIXI.Container();
 var back1_scene = new PIXI.Container();
@@ -12,12 +13,13 @@ var main_scene = new PIXI.Container();
 var front_scene = new PIXI.Container();
 var hud_scene = new PIXI.Container();
 
-stage.addChild(fixed_scene);
-stage.addChild(back2_scene);
-stage.addChild(back1_scene);
-stage.addChild(back05_scene);
-stage.addChild(main_scene);
-stage.addChild(front_scene);
+stage.addChild(shake_scene);
+shake_scene.addChild(fixed_scene);
+shake_scene.addChild(back2_scene);
+shake_scene.addChild(back1_scene);
+shake_scene.addChild(back05_scene);
+shake_scene.addChild(main_scene);
+shake_scene.addChild(front_scene);
 stage.addChild(hud_scene);
 
 
@@ -45,10 +47,15 @@ hud_scene.addChild(graphics_back);
 var mouseX, mouseY = 0;
 var main_character;
 var time = Date.now();
+
 var start = Date.now();
 var start_shaker = Date.now();
+var start_pippi = Date.now();
+
 var time_count = 0;
 var time_count_shaker = 0;
+var time_count_pippi = 0;
+
 var time_step = 0;
 var left, right, up, down = false; // Arrow Key controls
 var first_press = true;
@@ -57,8 +64,10 @@ var in_jump = false;
 var in_start_walk = true;
 var in_walk = false;
 var in_curbstomp = false;
-var shake_factor = 10;
-var shake_time = 1;
+var shake_factor = 3;
+var shake_time = 0.6;
+var stomp_time = 0.4;
+var in_shake = false;
 
 var CHARACTER_MOTION = {
   'IDLE' : 0,
